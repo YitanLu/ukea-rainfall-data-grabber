@@ -15,10 +15,10 @@ To modify this Template README for your project follow these steps:
 <br />
 <div align="center">
   <a href="https://github.com/mottmacdonaldglobal/repo_name">
-    <img src="python_logo.png" alt="Logo" width="300" height="300">
+    <img src="caption.JPG" alt="Logo" >
   </a>
 
-<h3 align="center">repo_name</h3>
+<h3 align="center">EA rainfall API querying tool</h3>
 
   <p align="center">
     <a href="https://github.com/mottmacdonaldglobal/repo_name"><strong>Explore the docs »</strong></a>
@@ -49,7 +49,7 @@ To modify this Template README for your project follow these steps:
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Replace this text with repository description. Please ensure that a prospective user is able to clearly understand the purpose of this repository from this description.
+As part of the Eurotunnel project, landslide movement is compared to the daily rainfall recorded at the automated __Cherry Gardens__ rain gauge (station reference [_305111_](https://environment.data.gov.uk/flood-monitoring/id/stations/305111.html)), which is operated by the Environment Agency. Approximate gauge location is the blue placemark on aerial photo
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -57,11 +57,9 @@ Replace this text with repository description. Please ensure that a prospective 
 ## Contact
 
 Use [GitHub Issues](https://github.com/mottmacdonaldglobal/repo_name/issues) to share ideas, feedback, tasks, or spotted bugs in this Repository.
-Or get in touch directly with one of the repository contributors.
+Or get in touch directly with [Yitan Lu](mailto:yitan.lu@mottmac.com) and [Richard Mellor](mailto:Richard.Mellor@mottmac.com).
 
-Don't forget to give the project a :star: !
-
-Project Link: [https://github.com/mottmacdonaldglobal/repo_name](https://github.com/mottmacdonaldglobal/repo_name)
+Project Link: [https://github.com/YitanLu/ukea-rainfall-data-grabber](https://github.com/YitanLu/ukea-rainfall-data-grabber)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -69,19 +67,22 @@ Project Link: [https://github.com/mottmacdonaldglobal/repo_name](https://github.
 
 ## Repository structure
 
-List of all directories:
+A jupyter notebook is created from source script in python [rain-maker](https://github.com/YitanLu/ukea-rainfall-data-grabber/rain-maker.py)
 
-- Supporting documents for this repository are saved in [docs](https://github.com/mottmacdonaldglobal/repo_name/tree/main/docs)
-- Supporting images for this repository are saved in [img](https://github.com/mottmacdonaldglobal/repo_name/tree/main/docs)
+Data downloaded for this repository are saved in [data](https://github.com/YitanLu/ukea-rainfall-data-grabber/data)
 
 ## Getting Started
 
 <!-- Add instructions specific to your project here. -->
 
-1. Prerequisites
+1. Prerequisites - Python 3.9 and libraries
 
 ```
-    List all prerequisites here (e.g. Dependencies, Libraries, Add-ins)
+    datatime
+    pandas
+    requests
+    csv
+    json
 ```
 
 2. Installation instruction:
@@ -94,44 +95,21 @@ List of all directories:
    Download [latest release](https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags#viewing-releases), if none available [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the repository
 
  ```
-    git clone https://github.com/mottmacdonaldglobal/repo_name.git
+    git clone https://github.com/YitanLu/ukea-rainfall-data-grabber.git
  ```
 
- 4. Environment Setup
+ 4. API documentation
 
-```
-# For pip
-> python -m venv .\venv
-> venv\Scripts\activate
-> pip install -r requirements.txt
+This tool kit is developed based on UK EA's [AIP reference](https://environment.data.gov.uk/flood-monitoring/doc/rainfall). Check regularly any update to the API to modify the script to adapt.
 
-# For conda
-> conda create --name venv --file requirements.txt
-> conda activate
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+**NOTE**: the current API has 1000 records limit. Each data is for 15 mintues interval so 1000 records is roughly 10 days. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Testing -->
 ## Testing
-Use Pytest from the root directory to run your unit tests found in unit_tests.
-```
-pytest
-```
+Unit testing to be decided
 
-Use Pylint from the root directory to test your code for style and syntax quality.
-```
-pylint $(git ls-files '*.py')
-```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
