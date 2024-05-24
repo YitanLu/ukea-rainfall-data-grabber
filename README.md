@@ -102,7 +102,10 @@ Data downloaded for this repository are saved in [data](https://github.com/Yitan
 
 This tool kit is developed based on UK EA's [AIP reference](https://environment.data.gov.uk/flood-monitoring/doc/rainfall). Check regularly any update to the API to modify the script to adapt.
 
-**NOTE**: the current API has 1000 records limit. Each data is for 15 mintues interval so 1000 records is roughly 10 days. 
+Notes the following implementation in data processing
+- **NOTE 1**: the current API has 1000 records limit. Each data is for 15 mintues interval so 1000 records is roughly 10 days. 
+- **NOTE 2**: assuming the script is triggered at regular interval <10 days, the new dataframe is appended to the existing dataframe (from csv) to form the data that includes both the new and the old. Also the new dataframe will replace any reading from the old (if any) at the same past recording time. It is expected that the station will take time to verify the latest data.
+- **NOTE 2**: the raw data [rawdata.csv](https://github.com/YitanLu/ukea-rainfall-data-grabber/data/rawdata.csv) saves reading of 15mins;  a processed data file does the daily sum and present the cummulative rainfall by date [processe_ddata.csv](https://github.com/YitanLu/ukea-rainfall-data-grabber/data/processed_data.csv). The [processed_data.csv](https://github.com/YitanLu/ukea-rainfall-data-grabber/data/processed_data.csv) only contains data until 3 days ago due to the reason explained in **NOTE 2**.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

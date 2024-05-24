@@ -25,27 +25,28 @@ jsondata = json.loads(response.text)
 new_list = []
 # Open a CSV file for writing
 # define the data folder path
-maincsv_path = r"C:\temp\ukea-rainfall-data-grabber\data\raindata.csv"
+maincsv_path = r"C:\temp\ukea-rainfall-data-grabber\data\rawdata.csv"
 
 for item in jsondata["items"]:
-    dateTime = item["dateTime"]
+    date_time = item["dateTime"]
+    date_only = date_time[:10]
     measure = item["measure"]
     value = item["value"]
 
     # Append the row to the list
-    new_list.append([dateTime, measure, value])
+    new_list.append([date_time, date_only, measure, value])
     # print(dateTime, measure, value)
 
-new_data = pd.DataFrame(new_list, columns=["dateTime", "measure", "value"])
+new_data = pd.DataFrame(new_list, columns=["datetime", "date", "measure", "value"])
 # new_data.set_index("dateTime", inplace=True)
 
 # Load the CSV data into a DataFrame
 try:
     df = pd.read_csv(maincsv_path)
-    df.columns = ["dateTime", "measure", "value"]
+    df.columns = ["datetime", "date", "measure", "value"]
     df.reset_index(drop=True, inplace=True)
 except:
-    df = pd.DataFrame(columns=["dateTime", "measure", "value"])
+    df = pd.DataFrame(columns=["datetime", "date", "measure", "value"])
 
 
 # Append new data
@@ -55,3 +56,9 @@ merged_df.drop_duplicates(keep="last", inplace=True)
 
 # Save the updated DataFrame back to CSV
 merged_df.to_csv(maincsv_path, index=False)
+
+# Futher process the dataframe, group values by date and sum the 15min reading by date
+day_df = merged_df.groupby(merged_df.columns[1])[merged_df.columns[3]].sum().reset_index()
+day_df.drop(day_df.tail(2).index, inplace=True)
+processedcsv_path = r"C:\temp\ukea-rainfall-data-grabber\data\processed_data.csv"
+day_df.to_csv(processedcsv_path, index=False)
