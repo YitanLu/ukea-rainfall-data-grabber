@@ -126,17 +126,21 @@ The `bat` file [scheduled_run.bat](https://github.com/YitanLu/ukea-rainfall-data
 2. Path to teh script (i.e. the local computer path to the [rain-maker](https://github.com/YitanLu/ukea-rainfall-data-grabber/rain-maker.py) script)
 
 Within the windows environment use [Task Scheduler](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) to set the script running at regular interval (e.g., twice per week etc. ).  Answer at this [link](https://stackoverflow.com/a/68674814) provides step to step instructions for setting up a task. Briefly in 4 steps:
-1. Setting up
+1. Setting up:
+   
    ![step1](scheduled-task-step1.JPG)
 
 2. Set an action (cmd to run bat file)
+   
    ![step2](scheduled-task-step2.JPG)
 
 
 3. Set trigger (frequecy of running the bat file)
+   
    ![step3](scheduled-task-step3.JPG)
 
 4. Check the task schedule is in place
+   
    ![step4](scheduled-task-step4.JPG)
 
 
