@@ -111,7 +111,28 @@ Notes the following implementation in data processing
 
 <!-- Testing -->
 ## Testing
+
 Unit testing to be decided
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Scheduled Task -->
+## Scheduled Task 
+
+A `bat` file is prompt the python interpreter to execute the script. 
+
+The `bat` file [scheduled_run.bat](https://github.com/YitanLu/ukea-rainfall-data-grabber/scheduled_run.bat) is included in the repo. User need to modify the bat file with the correct paths:
+1. Path to the python interpreter (i.e. following `cd` command in the bat file)
+2. Path to teh script (i.e. the local computer path to the [rain-maker](https://github.com/YitanLu/ukea-rainfall-data-grabber/rain-maker.py) script)
+
+Within the windows environment use [Task Scheduler](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) to set the script running at regular interval (e.g., twice per week etc. ).  Answer at this [link](https://stackoverflow.com/a/68674814) provides step to step instructions for setting up a task. Briefly in 4 steps:
+1. Setting up
+   <div align="center">
+  <a href="https://github.com/mottmacdonaldglobal/repo_name">
+    <img src="caption.JPG" alt="Logo" >
+  </a>
+  <div align="center">
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

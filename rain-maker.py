@@ -9,7 +9,7 @@ thisday = datetime.datetime.now()
 ten_days_ago = thisday - datetime.timedelta(days=10)
 # Format the date as YYYY-MM-DDTHH:MM:SSZ
 formatted_date = ten_days_ago.strftime("%Y-%m-%dT%H:%M:%SZ")
-print(formatted_date)
+print("ten days ago :" + formatted_date)
 
 # URL of the REST API
 # https://environment.data.gov.uk/flood-monitoring/id/stations/305111/readings?since=2024-05-13T10:30:00Z&_limit=1000
