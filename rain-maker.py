@@ -61,4 +61,10 @@ merged_df.to_csv(maincsv_path, index=False)
 day_df = merged_df.groupby(merged_df.columns[1])[merged_df.columns[3]].sum().reset_index()
 day_df.drop(day_df.tail(2).index, inplace=True)
 processedcsv_path = r"C:\temp\ukea-rainfall-data-grabber\data\processed_data.csv"
-day_df.to_csv(processedcsv_path, index=False)
+
+# Read the processed_data.csv file first so historic entries (manual entries) can be preserved
+histo_df = pd.read_csv(processedcsv_path, index_col=False)
+stack_df = pd.concat([histo_df, day_df])
+stack_df.drop_duplicates(inplace=True, ignore_index=True)
+stack_df.reset_index(drop=True, inplace=True)
+stack_df.to_csv(processedcsv_path, index=False)
